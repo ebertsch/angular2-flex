@@ -1,0 +1,9 @@
+// Core styles that can be used to apply material design treatments to any element.
+
+// Mixin that renders all of the core styles that are not theme-dependent.
+@mixin md-core() {
+}
+
+// Mixin that renders all of the core styles that depend on the theme.
+@mixin md-core-theme($theme) {
+}

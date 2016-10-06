@@ -1,0 +1,30 @@
+{
+  "name": "angular2-flex",
+  "version": "1.0.0",
+  "description": "A set of flexbox based directives inpired heavily by Angular Material 1",
+  "main": "./angular2-flex.umd.js",
+  "module": "./index.js",
+  "typings": "./index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ebertsch/angular2-flex.git"
+  },
+  "keywords": [
+    "angular",
+    "angular layout",
+    "angular flex",
+    "flexbox",
+    "components"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular2-flex/issues"
+  },
+  "homepage": "https://github.com/angular2-flex#readme",
+  "peerDependencies": {
+    "@angular/core": "^2.0.0",
+    "@angular/common": "^2.0.0"
+  },
+  "dependencies": {
+  }
+}
