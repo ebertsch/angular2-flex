@@ -1,15 +1,13 @@
 import {Component} from '@angular/core';
-
-
 let max = 5;
 
 @Component({
   moduleId: module.id,
   selector: 'input-demo',
-  templateUrl: 'input-demo.html',
-  styleUrls: ['input-demo.css'],
+  templateUrl: 'flex-demo.html',
+  styleUrls: ['flex-demo.css'],
 })
-export class InputDemo {
+export class FlexDemo {
   dividerColor: boolean;
   requiredField: boolean;
   floatingLabel: boolean;

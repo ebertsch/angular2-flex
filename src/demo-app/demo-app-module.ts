@@ -4,11 +4,11 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {DemoApp, Home} from './demo-app/demo-app';
 import {RouterModule} from '@angular/router';
-import {MaterialModule} from 'angular2-flex';
+import {Angular2FlexModule} from 'angular2-flex';
+import {MaterialModule} from '@angular/material';
 import {DEMO_APP_ROUTES} from './demo-app/routes';
 
-import {InputDemo} from './input/input-demo';
-import {CardDemo} from './card/card-demo';
+import {FlexDemo} from './flex/flex-demo';
 
 
 @NgModule({
@@ -18,12 +18,12 @@ import {CardDemo} from './card/card-demo';
     HttpModule,
     RouterModule.forRoot(DEMO_APP_ROUTES),
     MaterialModule.forRoot(),
+    Angular2FlexModule.forRoot(),
   ],
   declarations: [
-    CardDemo,
+    FlexDemo,
     DemoApp,
-    Home,
-    InputDemo
+    Home
   ],
   entryComponents: [
     DemoApp

@@ -1,0 +1,280 @@
+<h3>Layout and Containers</h3>
+<p>
+  Use the <code>layout</code> directive on a container element to specify the layout direction for
+  its children: horizontally in a row (<code>layout="row"</code>) or vertically in a column
+  (<code>layout="column"</code>). Note that <code>row</code> is the default layout direction if you
+  specify the <code>layout</code> directive without a value.
+</p>
+
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Layout Directive</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+      <div layout="row">
+        <div flex>First item in row</div>
+        <div flex>Second item in row</div>
+      </div>
+      <div layout="column">
+        <div flex>First item in column</div>
+        <div flex>Second item in column</div>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
+
+<h3>Responsive Containers</h3>
+<p>
+  For the demo below, as you shrink your browser window width notice the flow
+  direction changes to <code>column</code> for mobile devices (<code>xs</code>).
+  And as you expand it will reset to <code>row</code> for <code>gt-sm</code> view sizes.
+</p>
+
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Responsive Layouts</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+      <div layout="row" layout-xs="column">
+        <div flex>
+          I'm above on mobile, and to the left on larger devices.
+        </div>
+        <div flex>
+          I'm below on mobile, and to the right on larger devices.
+        </div>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
+
+<h3>Children within a Layout Container</h3>
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Flex Directive</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+
+      <div layout="row">
+        <div flex="20">
+          [flex="20"]
+        </div>
+        <div flex="70">
+          [flex="70"]
+        </div>
+        <div flex hide-sm hide-xs>
+          [flex]
+        </div>
+      </div>
+
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Flex Percent Values</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+
+      <div layout="row" layout-wrap>
+        <div flex="30">
+          [flex="30"]
+        </div>
+        <div flex="45">
+          [flex="45"]
+        </div>
+        <div flex="25">
+          [flex="25"]
+        </div>
+        <div flex="33">
+          [flex="33"]
+        </div>
+        <div flex="66">
+          [flex="66"]
+        </div>
+        <div flex="50">
+          [flex="50"]
+        </div>
+        <div flex>
+          [flex]
+        </div>
+      </div>
+
+
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Responsive Flex Directives</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+
+      <div layout="row">
+        <div flex-gt-sm="66" flex="33">
+          flex 33% on mobile, <br>and 66% on gt-sm devices.
+        </div>
+        <div flex-gt-sm="33" flex="66">
+          flex 66%  on mobile, <br>and 33% on gt-sm devices.
+        </div>
+      </div>
+
+
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Other Flex Values</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+
+      <div layout="row" layout-wrap>
+        <div flex="none">
+          [flex="none"]
+        </div>
+        <div flex>
+          [flex]
+        </div>
+        <div flex="nogrow">
+          [flex="nogrow"]
+        </div>
+        <div flex="grow">
+          [flex="grow"]
+        </div>
+        <div flex="initial">
+          [flex="initial"]
+        </div>
+        <div flex="auto">
+          [flex="auto"]
+        </div>
+        <div flex="noshrink">
+          [flex="noshrink"]
+        </div>
+        <div flex="0">
+          [flex="0"]
+        </div>
+      </div>
+
+
+    </div>
+  </md-card-content>
+</md-card>
+
+
+<h3>Ordering HTML Elements</h3>
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Flex-Order Directive</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+
+      <div layout="row">
+        <div flex flex-order="-1">
+          <p>[flex-order="-1"]</p>
+        </div>
+        <div flex flex-order="1" flex-order-gt-md="3">
+          <p hide-gt-md>[flex-order="1"]</p>
+          <p hide show-gt-md>[flex-order-gt-md="3"]</p>
+        </div>
+        <div flex flex-order="2">
+          <p>[flex-order="2"]</p>
+        </div>
+        <div flex flex-order="3" flex-order-gt-md="1">
+          <p hide-gt-md>[flex-order="3"]</p>
+          <p hide show-gt-md>[flex-order-gt-md="1"]</p>
+        </div>
+      </div>
+
+
+    </div>
+  </md-card-content>
+</md-card>
+
+<h3>Add Offsets to the Preceding HTML Elements</h3>
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Flex-Order Directive</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+
+      <div layout="row">
+        <div flex="66" flex-offset="15">
+          [flex-offset="15"]
+          [flex="66"]
+        </div>
+        <div flex>
+          [flex]
+        </div>
+      </div>
+
+    </div>
+  </md-card-content>
+</md-card>
+
+<h3>Layout Margin, Padding, Wrap and Fill</h3>
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Layout Margin, Padding, Fill</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+
+      <div layout="row" layout-margin>
+        <div flex>Parent layout and this element have margins.</div>
+      </div>
+      <div layout="row" layout-padding>
+        <div flex>Parent layout and this element have padding.</div>
+      </div>
+      <div layout="row" layout-fill style="min-height: 224px;">
+        <div flex>Parent layout is set to fill available space.</div>
+      </div>
+      <div layout="row" layout-padding layout-margin layout-fill style="min-height: 224px;">
+        <div flex>I am using all three at once.</div>
+      </div>
+
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Wrapping</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+
+      <div layout="row" layout-wrap>
+        <div flex="33">[flex=33]</div>
+        <div flex="66">[flex=66]</div>
+        <div flex="66">[flex=66]</div>
+        <div flex="33">[flex=33]</div>
+        <div flex="33">[flex=33]</div>
+        <div flex="33">[flex=33]</div>
+        <div flex="33">[flex=33]</div>
+      </div>
+
+    </div>
+  </md-card-content>
+</md-card>
+
+<h3>Show &amp; Hide</h3>
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Hide and Show Directives</md-toolbar>
+  <md-card-content>
+    <div class="colored-children">
+
+      <div layout="row">
+        <div hide show-gt-sm flex>
+          Only show on gt-sm devices.
+        </div>
+        <div hide-gt-sm flex>
+          Shown on small and medium.<br>
+          Hidden on gt-sm devices.
+        </div>
+        <div show hide-gt-md flex>
+          Shown on small and medium size devices.<br>
+          Hidden on gt-md devices.
+        </div>
+        <div hide show-md flex>
+          Shown on medium size devices only.
+        </div>
+        <div hide show-gt-lg flex>
+          Shown on devices larger than 1200px wide only.
+        </div>
+      </div>
+
+
+    </div>
+  </md-card-content>
+</md-card>

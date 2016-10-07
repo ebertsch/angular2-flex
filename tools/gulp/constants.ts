@@ -8,5 +8,5 @@ export const DIST_COMPONENTS_ROOT = join(DIST_ROOT, 'angular2-flex');
 
 
 export const NPM_VENDOR_FILES = [
-  '@angular', 'core-js/client', 'rxjs', 'systemjs/dist', 'zone.js/dist'
+  '@angular', 'core-js/client', 'hammerjs', 'rxjs', 'systemjs/dist', 'zone.js/dist'
 ];
