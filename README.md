@@ -7,6 +7,7 @@ The goal of this project is to provide interum flexbox support for angular 2 app
 Angular Material Team is busy working on Angular Material 2. With some luck all of the existing
 Angular Material directives will be supported.
 
+Demo Site: [https://angular2-flex.firebaseapp.com/](https://angular2-flex.firebaseapp.com/)
 
 Currently working on:
 * Validation of Attribute values
