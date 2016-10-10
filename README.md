@@ -10,7 +10,8 @@ Angular Material directives will be supported.
 Demo Site: [https://angular2-flex.firebaseapp.com/](https://angular2-flex.firebaseapp.com/)
 
 Currently working on:
-* Validation of Attribute values
+* Get flex-offset working
+* Add documentation for directives
 * $media service for like [Angular Material](https://material.angularjs.org/latest/api/service/$mdMedia)
 * Move SCSS files into their respective components
 
