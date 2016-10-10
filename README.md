@@ -1,7 +1,7 @@
-# NOT YET READY
-
 # Angular2-Flex - Flexbox directives for Angular 2
 
+`npm i -S angular2-flex`
+and add a link to `/node_modules/angular2-flex/styles/layout.css`
 
 The goal of this project is to provide interum flexbox support for angular 2 apps while the
 Angular Material Team is busy working on Angular Material 2. With some luck all of the existing

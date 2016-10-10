@@ -1,6 +1,6 @@
 {
   "name": "angular2-flex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A set of flexbox based directives inpired heavily by Angular Material 1",
   "main": "./angular2-flex.umd.js",
   "module": "./index.js",
