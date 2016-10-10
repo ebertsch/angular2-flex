@@ -3,8 +3,9 @@ import {NgModule, ModuleWithProviders} from '@angular/core';
 import { LayoutModule } from './layout/index';
 import { LayoutPaddingModule } from './layout-padding/index';
 import { LayoutMarginModule } from './layout-margin/index';
-import { LayoutHideModule } from './layout-hide/index';
-import { LayoutShowModule } from './layout-show/index';
+import { LayoutWrapModule } from './layout-wrap/index';
+import { HideModule } from './hide/index';
+import { ShowModule } from './show/index';
 import { LayoutAlignModule } from './layout-align/index';
 import { FlexModule } from './flex/index';
 import { FlexOrderModule } from './flex-order/index';
@@ -14,8 +15,9 @@ const FLEX_ANGULAR_MODULES = [
   LayoutModule,
   LayoutMarginModule,
   LayoutPaddingModule,
-  LayoutHideModule,
-  LayoutShowModule,
+  LayoutWrapModule,
+  HideModule,
+  ShowModule,
   LayoutAlignModule,
   FlexModule,
   FlexOrderModule,
@@ -27,8 +29,9 @@ const FLEX_ANGULAR_MODULES = [
     LayoutModule.forRoot(),
     LayoutMarginModule.forRoot(),
     LayoutPaddingModule.forRoot(),
-    LayoutHideModule.forRoot(),
-    LayoutShowModule.forRoot(),
+    LayoutWrapModule.forRoot(),
+    HideModule.forRoot(),
+    ShowModule.forRoot(),
     LayoutAlignModule.forRoot(),
     FlexModule.forRoot(),
     FlexOrderModule.forRoot(),

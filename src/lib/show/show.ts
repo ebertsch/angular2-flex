@@ -4,18 +4,15 @@ import {
   ModuleWithProviders,
 } from '@angular/core';
 
-import { BREAKPOINTS, extractAlignAxis, AttributeWithValueFactory } from '../core';
+import { BREAKPOINTS, AttributeWithValueFactory } from '../core';
 
 function getValidValue(value: any) {
-  let attributeValue = value;
-  let axis = extractAlignAxis(attributeValue);
-  attributeValue = `${axis.main}-${axis.cross}`;
-  return attributeValue;
+  return '';
 }
 
 let directives: any[] = [];
 BREAKPOINTS.forEach(breakPoint => {
-  let fullName = breakPoint ? `layout-align-${breakPoint}` : 'layout-align';
+  let fullName = breakPoint ? `show-${breakPoint}` : 'show';
 
   directives.push(
     Directive({ selector: `[${fullName}]`, inputs: [`value: ${fullName}`] })
@@ -30,10 +27,10 @@ BREAKPOINTS.forEach(breakPoint => {
   imports: [],
   exports: [...directives],
 })
-export class LayoutAlignModule {
+export class ShowModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: LayoutAlignModule,
+      ngModule: ShowModule,
       providers: []
     };
   }

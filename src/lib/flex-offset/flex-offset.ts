@@ -1,93 +1,36 @@
 import {
-  Input,
   Directive,
-  Renderer,
-  ElementRef,
   NgModule,
-  ModuleWithProviders
+  ModuleWithProviders,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-import { ResponsiveAttributeWithValue } from '../core';
+import { BREAKPOINTS, AttributeWithValueFactory } from '../core';
 
-const FLEX_OFFSET_DEFAULT = 0;
+function getValidValue(value: any) {
+  let attributeValue = value;
+  if (!attributeValue || isNaN(+attributeValue)) {
+    attributeValue = '0';
+  }
 
-@Directive({ selector: '[flexOffset]' })
-export class FlexOffset extends ResponsiveAttributeWithValue {
-  @Input('flexOffset') input: number;
-  constructor(element: ElementRef, renderer: Renderer) { super('flex-offset', element, renderer, FLEX_OFFSET_DEFAULT); }
-}
-@Directive({ selector: '[flexOffsetXs]' })
-export class FlexOffsetXs extends ResponsiveAttributeWithValue {
-  @Input('flexOffsetXs') input: number;
-  constructor(element: ElementRef, renderer: Renderer) { super('flex-offset-xs', element, renderer, FLEX_OFFSET_DEFAULT); }
-}
-@Directive({ selector: '[flexOffsetGtXs]' })
-export class FlexOffsetGtXs extends ResponsiveAttributeWithValue {
-  @Input('flexOffsetGtXs') input: number;
-  constructor(element: ElementRef, renderer: Renderer) { super('flex-offset-gt-xs', element, renderer, FLEX_OFFSET_DEFAULT); }
-}
-@Directive({ selector: '[flexOffsetSm]' })
-export class FlexOffsetSm extends ResponsiveAttributeWithValue {
-  @Input('flexOffsetSm') input: number;
-  constructor(element: ElementRef, renderer: Renderer) { super('flex-offset-sm', element, renderer, FLEX_OFFSET_DEFAULT); }
-}
-@Directive({ selector: '[flexOffsetGtSm]' })
-export class FlexOffsetGtSm extends ResponsiveAttributeWithValue {
-  @Input('flexOffsetGtSm') input: number;
-  constructor(element: ElementRef, renderer: Renderer) { super('flex-offset-gt-sm', element, renderer, FLEX_OFFSET_DEFAULT); }
-}
-@Directive({ selector: '[flexOffsetMd]' })
-export class FlexOffsetMd extends ResponsiveAttributeWithValue {
-  @Input('flexOffsetMd') valinputue: number;
-  constructor(element: ElementRef, renderer: Renderer) { super('flex-offset-md', element, renderer, FLEX_OFFSET_DEFAULT); }
-}
-@Directive({ selector: '[flexOffsetGtMd]' })
-export class FlexOffsetGtMd extends ResponsiveAttributeWithValue {
-  @Input('flexOffsetGtMd') input: number;
-  constructor(element: ElementRef, renderer: Renderer) { super('flex-offset-gt-md', element, renderer, FLEX_OFFSET_DEFAULT); }
-}
-@Directive({ selector: '[flexOffsetLg]' })
-export class FlexOffsetLg extends ResponsiveAttributeWithValue {
-  @Input('flexOffsetLg') input: number;
-  constructor(element: ElementRef, renderer: Renderer) { super('flex-offset-lg', element, renderer, FLEX_OFFSET_DEFAULT); }
-}
-@Directive({ selector: '[flexOffsetGtLg]' })
-export class FlexOffsetGtLg extends ResponsiveAttributeWithValue {
-  @Input('flexOffsetGtLg') input: number;
-  constructor(element: ElementRef, renderer: Renderer) { super('flex-offset-gt-lg', element, renderer, FLEX_OFFSET_DEFAULT); }
-}
-@Directive({ selector: '[flexOffsetXl]' })
-export class FlexOffsetXl extends ResponsiveAttributeWithValue {
-  @Input('flexOffsetXl') input: number;
-  constructor(element: ElementRef, renderer: Renderer) { super('flex-offset-xl', element, renderer, FLEX_OFFSET_DEFAULT); }
+  return attributeValue;
 }
 
+let directives: any[] = [];
+BREAKPOINTS.forEach(breakPoint => {
+  let fullName = breakPoint ? `flex-offset-${breakPoint}` : 'flex-offset';
+
+  directives.push(
+    Directive({ selector: `[${fullName}]`, inputs: [`value: ${fullName}`] })
+      .Class(AttributeWithValueFactory(fullName, getValidValue))
+  );
+});
 @NgModule({
   declarations: [
-    FlexOffset,
-    FlexOffsetGtLg,
-    FlexOffsetGtMd,
-    FlexOffsetGtSm,
-    FlexOffsetGtXs,
-    FlexOffsetLg,
-    FlexOffsetMd,
-    FlexOffsetSm,
-    FlexOffsetXl,
-    FlexOffsetXs
+    ...directives
   ],
-  imports: [CommonModule],
+  imports: [],
   exports: [
-    FlexOffset,
-    FlexOffsetGtLg,
-    FlexOffsetGtMd,
-    FlexOffsetGtSm,
-    FlexOffsetGtXs,
-    FlexOffsetLg,
-    FlexOffsetMd,
-    FlexOffsetSm,
-    FlexOffsetXl,
-    FlexOffsetXs
+    ...directives
   ],
 })
 export class FlexOffsetModule {

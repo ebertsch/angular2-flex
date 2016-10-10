@@ -11,6 +11,7 @@ export class FlexDemo {
   dividerColor: boolean;
   requiredField: boolean;
   floatingLabel: boolean;
+  flexValue: string = 'my-test';
   name: string;
   items: any[] = [
     { value: 10 },

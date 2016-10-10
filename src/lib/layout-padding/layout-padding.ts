@@ -1,95 +1,31 @@
-import { Directive, ElementRef, Renderer, NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ResponsiveAttributeWithoutValue } from '../core';
+import {
+  Directive,
+  NgModule,
+  ModuleWithProviders,
+} from '@angular/core';
 
-@Directive({ selector: '[layoutPadding]' })
-export class LayoutPadding extends ResponsiveAttributeWithoutValue {
-  constructor(el: ElementRef, renderer: Renderer) {
-    super('layout-padding', el.nativeElement, renderer);
-  }
+import { BREAKPOINTS, AttributeWithValueFactory } from '../core';
+
+function getValidValue(value: any) {
+  return '';
 }
-@Directive({ selector: '[layoutPaddingXs]' })
-export class LayoutPaddingXs extends ResponsiveAttributeWithoutValue {
-  constructor(el: ElementRef, renderer: Renderer) {
-    super('layout-padding-xs', el.nativeElement, renderer);
-  }
-}
-@Directive({ selector: '[layoutPaddingGtXs]' })
-export class LayoutPaddingGtXs extends ResponsiveAttributeWithoutValue {
-  constructor(el: ElementRef, renderer: Renderer) {
-    super('layout-padding-gt-xs', el.nativeElement, renderer);
-  }
-}
-@Directive({ selector: '[layoutPaddingSm]' })
-export class LayoutPaddingSm extends ResponsiveAttributeWithoutValue {
-  constructor(el: ElementRef, renderer: Renderer) {
-    super('layout-padding-sm', el.nativeElement, renderer);
-  }
-}
-@Directive({ selector: '[layoutPaddingGtSm]' })
-export class LayoutPaddingGtSm extends ResponsiveAttributeWithoutValue {
-  constructor(el: ElementRef, renderer: Renderer) {
-    super('layout-padding-gt-sm', el.nativeElement, renderer);
-  }
-}
-@Directive({ selector: '[layoutPaddingMd]' })
-export class LayoutPaddingMd extends ResponsiveAttributeWithoutValue {
-  constructor(el: ElementRef, renderer: Renderer) {
-    super('layout-padding-md', el.nativeElement, renderer);
-  }
-}
-@Directive({ selector: '[layoutPaddingGtMd]' })
-export class LayoutPaddingGtMd extends ResponsiveAttributeWithoutValue {
-  constructor(el: ElementRef, renderer: Renderer) {
-    super('layout-padding-gt-md', el.nativeElement, renderer);
-  }
-}
-@Directive({ selector: '[layoutPaddingLg]' })
-export class LayoutPaddingLg extends ResponsiveAttributeWithoutValue {
-  constructor(el: ElementRef, renderer: Renderer) {
-    super('layout-padding-lg', el.nativeElement, renderer);
-  }
-}
-@Directive({ selector: '[layoutPaddingGtLg]' })
-export class LayoutPaddingGtLg extends ResponsiveAttributeWithoutValue {
-  constructor(el: ElementRef, renderer: Renderer) {
-    super('layout-padding-gt-lg', el.nativeElement, renderer);
-  }
-}
-@Directive({ selector: '[layoutPaddingXl]' })
-export class LayoutPaddingXl extends ResponsiveAttributeWithoutValue {
-  constructor(el: ElementRef, renderer: Renderer) {
-    super('layout-padding-xl', el.nativeElement, renderer);
-  }
-}
+
+let directives: any[] = [];
+BREAKPOINTS.forEach(breakPoint => {
+  let fullName = breakPoint ? `layout-padding-${breakPoint}` : 'layout-padding';
+
+  directives.push(
+    Directive({ selector: `[${fullName}]`, inputs: [`value: ${fullName}`] })
+      .Class(AttributeWithValueFactory(fullName, getValidValue))
+  );
+});
+
 
 
 @NgModule({
-  declarations: [
-    LayoutPadding,
-    LayoutPaddingGtLg,
-    LayoutPaddingGtMd,
-    LayoutPaddingGtSm,
-    LayoutPaddingGtXs,
-    LayoutPaddingLg,
-    LayoutPaddingMd,
-    LayoutPaddingSm,
-    LayoutPaddingXl,
-    LayoutPaddingXs
-  ],
-  imports: [CommonModule],
-  exports: [
-    LayoutPadding,
-    LayoutPaddingGtLg,
-    LayoutPaddingGtMd,
-    LayoutPaddingGtSm,
-    LayoutPaddingGtXs,
-    LayoutPaddingLg,
-    LayoutPaddingMd,
-    LayoutPaddingSm,
-    LayoutPaddingXl,
-    LayoutPaddingXs
-  ],
+  declarations: [...directives],
+  imports: [],
+  exports: [...directives],
 })
 export class LayoutPaddingModule {
   static forRoot(): ModuleWithProviders {
