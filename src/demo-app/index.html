@@ -1,31 +1,34 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1">
-  <title>Angular2 Flex Demo</title>
-  <base href="/">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1">
+	<title>Angular2 Flex Demo</title>
+	<base href="/">
 
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="vendor/@angular/material/core/theming/prebuilt/indigo-pink.css" rel="stylesheet">
-  <link href="angular2-flex/styles/layout.css" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="vendor/@angular/material/core/theming/prebuilt/indigo-pink.css" rel="stylesheet">
+	<link href="angular2-flex/layout.css" rel="stylesheet">
 
-  <!-- FontAwesome for md-icon demo. -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<!-- FontAwesome for md-icon demo. -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
+
 <body layout="row">
-  <demo-app layout="row">Loading...</demo-app>
+	<demo-app layout="row">Loading...</demo-app>
 
-  <script src="vendor/core-js/client/core.js"></script>
-  <script src="vendor/systemjs/dist/system.src.js"></script>
-  <script src="vendor/zone.js/dist/zone.js"></script>
-  <script src="vendor/hammerjs/hammer.min.js"></script>
+	<script src="vendor/core-js/client/core.js"></script>
+	<script src="vendor/systemjs/dist/system.src.js"></script>
+	<script src="vendor/zone.js/dist/zone.js"></script>
+	<script src="vendor/hammerjs/hammer.min.js"></script>
 
-  <script>
+	<script>
     System.import('system-config.js').then(function () {
       System.import('main');
     }).catch(console.error.bind(console));
   </script>
 </body>
+
 </html>

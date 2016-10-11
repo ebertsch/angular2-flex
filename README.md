@@ -38,6 +38,7 @@ Currently working on:
 * Update README for directives with samples
 * $media service like [Angular Material](https://material.angularjs.org/latest/api/service/$mdMedia) but using observables
 * Move SCSS files into their respective components
+* Added Unit tests and e2e tests
 
 
 #### Feature status:
