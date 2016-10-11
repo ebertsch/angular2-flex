@@ -1,14 +1,19 @@
-import {
-  Directive,
-  NgModule,
-  ModuleWithProviders,
-} from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { BREAKPOINTS, LayoutUtility, AttributeDirectiveFactory } from '../core';
 
-import { BREAKPOINTS, findIn, FLEX_OPTIONS, AttributeWithValueFactory } from '../core';
 
-function getValidValue(value: any) {
+export const FLEX_OPTIONS: string[] = [
+  'grow',
+  'initial',
+  'auto',
+  'none',
+  'noshrink',
+  'nogrow'
+];
+
+function getValue(value: any) {
   let attributeValue = value;
-  if (!findIn(attributeValue, FLEX_OPTIONS)) {
+  if (!LayoutUtility.findIn(attributeValue, FLEX_OPTIONS)) {
     if (isNaN(attributeValue)) {
       attributeValue = '';
     }
@@ -18,15 +23,12 @@ function getValidValue(value: any) {
 }
 
 let directives: any[] = [];
+let generator = new AttributeDirectiveFactory();
+
 BREAKPOINTS.forEach(breakPoint => {
-  let fullName = breakPoint ? `flex-${breakPoint}` : 'flex';
-
-  directives.push(
-    Directive({ selector: `[${fullName}]`, inputs: [`value: ${fullName}`] })
-      .Class(AttributeWithValueFactory(fullName, getValidValue))
-  );
+  let name = breakPoint ? `flex-${breakPoint}` : 'flex';
+  directives.push(generator.generateDirective(name, breakPoint, getValue));
 });
-
 
 
 @NgModule({

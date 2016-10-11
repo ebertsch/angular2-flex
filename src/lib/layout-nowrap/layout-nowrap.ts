@@ -6,7 +6,7 @@ let directives: any[] = [];
 let generator = new AttributeDirectiveFactory();
 
 BREAKPOINTS.forEach(breakPoint => {
-  let name = breakPoint ? `hide-${breakPoint}` : 'hide';
+  let name = breakPoint ? `layout-nowrap-${breakPoint}` : 'layout-nowrap';
   directives.push(generator.generateDirective(name, breakPoint));
 });
 
@@ -16,10 +16,10 @@ BREAKPOINTS.forEach(breakPoint => {
   imports: [],
   exports: [...directives],
 })
-export class HideModule {
+export class LayoutNowrapModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: HideModule,
+      ngModule: LayoutNowrapModule,
       providers: []
     };
   }

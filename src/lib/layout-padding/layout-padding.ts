@@ -1,25 +1,14 @@
-import {
-  Directive,
-  NgModule,
-  ModuleWithProviders,
-} from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { BREAKPOINTS, AttributeDirectiveFactory } from '../core';
 
-import { BREAKPOINTS, AttributeWithValueFactory } from '../core';
-
-function getValidValue(value: any) {
-  return '';
-}
 
 let directives: any[] = [];
+let generator = new AttributeDirectiveFactory();
+
 BREAKPOINTS.forEach(breakPoint => {
-  let fullName = breakPoint ? `layout-padding-${breakPoint}` : 'layout-padding';
-
-  directives.push(
-    Directive({ selector: `[${fullName}]`, inputs: [`value: ${fullName}`] })
-      .Class(AttributeWithValueFactory(fullName, getValidValue))
-  );
+  let name = breakPoint ? `layout-padding-${breakPoint}` : 'layout-padding';
+  directives.push(generator.generateDirective(name, breakPoint));
 });
-
 
 
 @NgModule({

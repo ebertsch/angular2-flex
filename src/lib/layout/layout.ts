@@ -1,14 +1,15 @@
-import {
-  Directive,
-  NgModule,
-  ModuleWithProviders,
-} from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { BREAKPOINTS, LayoutUtility, AttributeDirectiveFactory } from '../core';
 
-import { BREAKPOINTS, findIn, LAYOUT_OPTIONS, AttributeWithValueFactory } from '../core';
 
-function getValidValue(value: any) {
+export const LAYOUT_OPTIONS: string[] = [
+  'row',
+  'column'
+];
+
+function getValue(value: any) {
   let attributeValue = value;
-  if (!findIn(value, LAYOUT_OPTIONS)) {
+  if (!LayoutUtility.findIn(value, LAYOUT_OPTIONS)) {
     attributeValue = LAYOUT_OPTIONS[0];
   }
 
@@ -16,15 +17,12 @@ function getValidValue(value: any) {
 }
 
 let directives: any[] = [];
+let generator = new AttributeDirectiveFactory();
+
 BREAKPOINTS.forEach(breakPoint => {
-  let fullName = breakPoint ? `layout-${breakPoint}` : 'layout';
-
-  directives.push(
-    Directive({ selector: `[${fullName}]`, inputs: [`value: ${fullName}`] })
-      .Class(AttributeWithValueFactory(fullName, getValidValue))
-  );
+  let name = breakPoint ? `layout-${breakPoint}` : 'layout';
+  directives.push(generator.generateDirective(name, breakPoint, getValue));
 });
-
 
 
 @NgModule({

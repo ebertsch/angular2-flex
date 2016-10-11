@@ -1,18 +1,42 @@
 # Angular2-Flex - Flexbox directives for Angular 2
 
-`npm i -S angular2-flex`
-and add a link to `/node_modules/angular2-flex/styles/layout.css`
-
 The goal of this project is to provide interum flexbox support for angular 2 apps while the
 Angular Material Team is busy working on Angular Material 2. With some luck all of the existing
 Angular Material directives will be supported.
 
 Demo Site: [https://angular2-flex.firebaseapp.com/](https://angular2-flex.firebaseapp.com/)
 
+#### Usage
+Install via NPM<br>
+`npm i -S angular2-flex`
+
+Add a link to `/node_modules/angular2-flex/styles/layout.css`
+
+
+Update your AppModule
+```
+import {Angular2FlexModule} from 'angular2-flex'; // <- do this
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    Angular2FlexModule.forRoot(), // <- do this
+  ],
+  declarations: [
+    DemoApp
+  ]
+})
+
+```
+
+
+### Development
 Currently working on:
 * Get flex-offset working
 * Add documentation for directives
-* $media service for like [Angular Material](https://material.angularjs.org/latest/api/service/$mdMedia)
+* Update README for directives with samples
+* $media service like [Angular Material](https://material.angularjs.org/latest/api/service/$mdMedia) but using observables
 * Move SCSS files into their respective components
 
 

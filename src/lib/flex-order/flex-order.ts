@@ -1,12 +1,8 @@
-import {
-  Directive,
-  NgModule,
-  ModuleWithProviders,
-} from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { BREAKPOINTS, AttributeDirectiveFactory } from '../core';
 
-import { BREAKPOINTS, AttributeWithValueFactory } from '../core';
 
-function getValidValue(value: any) {
+function getValue(value: any) {
   let attributeValue = value;
   if (!attributeValue || isNaN(+attributeValue)) {
     attributeValue = '0';
@@ -15,15 +11,15 @@ function getValidValue(value: any) {
   return attributeValue;
 }
 
-let directives: any[] = [];
-BREAKPOINTS.forEach(breakPoint => {
-  let fullName = breakPoint ? `flex-order-${breakPoint}` : 'flex-order';
 
-  directives.push(
-    Directive({ selector: `[${fullName}]`, inputs: [`value: ${fullName}`] })
-      .Class(AttributeWithValueFactory(fullName, getValidValue))
-  );
+let directives: any[] = [];
+let generator = new AttributeDirectiveFactory();
+
+BREAKPOINTS.forEach(breakPoint => {
+  let name = breakPoint ? `flex-order-${breakPoint}` : 'flex-order';
+  directives.push(generator.generateDirective(name, breakPoint, getValue));
 });
+
 
 @NgModule({
   declarations: [
