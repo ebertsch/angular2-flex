@@ -1,3 +1,4 @@
+import { WHITESPACE } from './core';
 
 export class LayoutUtility {
 

@@ -5,7 +5,7 @@ import {
 
 export const WHITESPACE = /\s+/g;
 export { LayoutUtility } from './layout-utility';
-export { BREAKPOINTS, SUFFIXES } from './media';
+export { BREAKPOINTS, SUFFIXES } from './media/index';
 export { AttributeDirectiveFactory } from './attribute-directive-factory';
 
 

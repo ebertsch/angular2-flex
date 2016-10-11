@@ -10,7 +10,7 @@ Demo Site: [https://angular2-flex.firebaseapp.com/](https://angular2-flex.fireba
 Install via NPM<br>
 `npm i -S angular2-flex`
 
-Add a link to `/node_modules/angular2-flex/styles/layout.css`
+Add a link to `/node_modules/angular2-flex/layout.css`
 
 
 Update your AppModule
