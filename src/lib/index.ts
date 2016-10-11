@@ -8,6 +8,7 @@ export * from './layout-wrap/index';
 export * from './layout-nowrap/index';
 export * from './layout/index';
 export * from './layout-align/index';
+export * from './layout-fill/index';
 export * from './hide/index';
 export * from './layout-margin/index';
 export * from './layout-padding/index';

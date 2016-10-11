@@ -4,6 +4,7 @@ import { LayoutModule } from './layout/index';
 import { LayoutPaddingModule } from './layout-padding/index';
 import { LayoutMarginModule } from './layout-margin/index';
 import { LayoutWrapModule } from './layout-wrap/index';
+import { LayoutFillModule } from './layout-fill/index';
 import { HideModule } from './hide/index';
 import { ShowModule } from './show/index';
 import { LayoutAlignModule } from './layout-align/index';
@@ -16,6 +17,7 @@ const FLEX_ANGULAR_MODULES = [
   LayoutMarginModule,
   LayoutPaddingModule,
   LayoutWrapModule,
+  LayoutFillModule,
   HideModule,
   ShowModule,
   LayoutAlignModule,
@@ -30,6 +32,7 @@ const FLEX_ANGULAR_MODULES = [
     LayoutMarginModule.forRoot(),
     LayoutPaddingModule.forRoot(),
     LayoutWrapModule.forRoot(),
+    LayoutFillModule.forRoot(),
     HideModule.forRoot(),
     ShowModule.forRoot(),
     LayoutAlignModule.forRoot(),
